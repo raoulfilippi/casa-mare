@@ -127,9 +127,12 @@
 </section>
 
 <div class="lightbox" id="lightbox">
-  <span class="close" onclick="document.getElementById('lightbox').style.display='none'">&times;</span>
+  <span class="close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="">
+  <span class="nav prev" onclick="showPrev()">&#10094;</span>
+  <span class="nav next" onclick="showNext()">&#10095;</span>
 </div>
+
 
 <script>
   document.querySelectorAll('.gallery img').forEach(img => {
