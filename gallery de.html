@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -58,6 +57,8 @@
       border: none;
       border-radius: 4px;
     }
+
+    /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
@@ -83,25 +84,35 @@
       font-weight: bold;
       cursor: pointer;
     }
+    .nav {
+      position: absolute;
+      top: 50%;
+      font-size: 3rem;
+      color: white;
+      padding: 0 1rem;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 <body>
+
 <header>
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; background-color: #4db6ac; color: white;">
-    
-    <!-- Leiste oben mit Sprache und Home-Button -->
     <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-      <select onchange="window.location.href = this.value;" style="padding: 0.5rem; font-size: 1rem; background-color: #388e82; color: white; border: none; border-radius: 4px;">
-        <option value="gallery de.html">Deutsch</option>
+      <select onchange="window.location.href = this.value;">
         <option value="gallery en.html">Englisch</option>
         <option value="gallery it.html">Italienisch</option>
+        <option value="gallery de.html">Deutsch</option>
       </select>
       <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
-        🏠 Startseite
+        🏠 Home
       </a>
     </div>
 
-    <!-- Titel -->
     <div style="text-align: center;">
       <div style="font-weight: bold; font-size: 1.8rem;">Ferienhaus Gianna</div>
       <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italien</div>
@@ -109,41 +120,75 @@
   </div>
 </header>
 
-
 <section>
   <h2>Galerie</h2>
   <div class="gallery" id="gallery">
     <img src="tahiti.png" alt="xxx">
     <img src="casa1.jpg" alt="xxx">
     <img src="casa2.jpg" alt="xxx">
-    <img src="casa3.jpg" alt="Bedroom with bookshelf and sea pictures">
+    <img src="casa3.jpg" alt="Schlafzimmer mit Bücherregal und Seebildern">
     <img src="casa4.jpg" alt="xxx">
     <img src="casa5.jpg" alt="xxx">
     <img src="casa6.jpg" alt="xxx">
-    <img src="casa7.jpg" alt="Dining area and kitchen with appliances">
-    <img src="casa8.jpg" alt="Second bedroom with bookshelf and angel image">
+    <img src="casa7.jpg" alt="Essbereich und Küche mit Geräten">
+    <img src="casa8.jpg" alt="Zweites Schlafzimmer mit Bücherregal und Engelbild">
     <img src="casa9.jpg" alt="xxx">
   </div>
 </section>
 
+<!-- Lightbox with navigation -->
 <div class="lightbox" id="lightbox">
-  <span class="close" onclick="document.getElementById('lightbox').style.display='none'">&times;</span>
+  <span class="close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="">
+  <span class="nav prev" onclick="showPrev()">&#10094;</span>
+  <span class="nav next" onclick="showNext()">&#10095;</span>
 </div>
-
-<script>
-  document.querySelectorAll('.gallery img').forEach(img => {
-    img.onclick = () => {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightbox-img');
-      lightboxImg.src = img.src;
-      lightbox.style.display = 'flex';
-    };
-  });
-</script>
 
 <footer>
   <p>&copy; 2025 Ferienhaus Gianna</p>
 </footer>
+
+<script>
+  const images = Array.from(document.querySelectorAll('.gallery img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      openLightbox();
+    });
+  });
+
+  function openLightbox() {
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    openLightbox();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    openLightbox();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+</script>
+
 </body>
 </html>
+
