@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferienhaus Gianna</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #4db6ac;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+    }
+    h2 {
+      color: #4db6ac;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem;
+      border-radius: 8px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer {
+      background-color: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: #388e82;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+    <div style="text-align: center;">
+      <div style="font-weight: bold; font-size: 1.8rem;">Ferienhaus Gianna</div>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italien</div>
+    </div>
+    
+    <!-- Pulsante Home a destra -->
+    <div style="position: absolute; top: 0.5rem; right: 0;">
+      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
+        🏠 Startseite
+      </a>
+    </div>
+
+    <!-- Menu a tendina per la lingua -->
+    <div style="position: absolute; top: 0.5rem; left: 0;">
+      <select onchange="window.location.href = this.value;">
+        <option value="index.html">Deutsch</option>
+        <option value="en.html">English</option>
+        <option value="it.html">Italienisch </option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Willkommen</h2>
+  <p>Eckvilla in einer ruhigen und grünen Gegend, mit Vorder- und Hintergarten. Perfekt für Familien und Paare. Nur 200 Meter vom Meer entfernt (3 Minuten zu Fuß), in der Nähe des Baia Thaiti Beach Clubs.</p>
+
+  <h2>Kapazität</h2>
+  <p>Bis zu 6 Gäste: zwei Doppelzimmer und ein Schlafsofa im Wohnzimmer.</p>
+
+  <h2>Ausstattungen</h2>
+  <ul>
+    <li>WLAN</li>
+    <li>Klimaanlage</li>
+    <li>Vorder- und Hintergarten</li>
+    <li>Privater Parkplatz</li>
+  </ul>
+
+<h2>Galerie</h2>
+<p>
+  Um die vollständige Bildergalerie zu sehen, besuchen Sie unsere dedizierte Seite:
+  <a href="gallery de.html" style="color: #4db6ac; text-decoration: none; font-weight: bold; font-size: 1.5rem; animation: blink 1s infinite;">
+    Zur Galerie
+  </a>
+</p>
+
+<style>
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+</style>
+
+<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+    <a href="https://wa.me/393388984269?text=Hallo%2C%20ich%20möchte%20mehr%20Informationen%20über%20Ferienhaus%20Gianna%20erhalten"
+       target="_blank"
+       style="background-color:#25D366; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1rem; font-weight:bold; width: 200px; text-align: center;">
+      💬 Kontaktieren Sie uns
+    </a>
+
+    <a href="mailto:casamarenazioni@gmail.com?subject=Buchungsanfrage%20für%20Ferienhaus%20Gianna"
+       style="background-color:#ff7043; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+      🏖️ Jetzt buchen
+    </a>
+
+    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686"
+       target="_blank"
+       style="background-color:#2196f3; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+      📍 Wegbeschreibung
+    </a>
+</div>
+</section>
+
+
+
+<footer>
+  <p>&copy; 2025 Ferienhaus Gianna</p>
+  <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Zurück zur Startseite</a></p>
+</footer>
+</body>
+</html>
