@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galleria - Casa Vacanze Gianna</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background-color: #4db6ac;
+      color: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background-color: white;
+    }
+    h2 {
+      color: #4db6ac;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer {
+      background-color: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: #388e82;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .close {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .nav {
+      position: absolute;
+      top: 50%;
+      font-size: 3rem;
+      color: white;
+      padding: 0 1rem;
+      cursor: pointer;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; background-color: #4db6ac; color: white;">
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <select onchange="window.location.href = this.value;">
+        <option value="gallery it.html">Italiano</option>
+        <option value="gallery en.html">Inglese</option>
+        <option value="gallery de.html">Tedesco</option>
+      </select>
+      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
+        🏠 Home
+      </a>
+    </div>
+
+    <div style="text-align: center;">
+      <div style="font-weight: bold; font-size: 1.8rem;">Casa Vacanze Gianna</div>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2>Galleria</h2>
+  <div class="gallery" id="gallery">
+    <img src="tahiti.png" alt="xxx">
+    <img src="casa1.jpg" alt="xxx">
+    <img src="casa2.jpg" alt="xxx">
+    <img src="casa3.jpg" alt="Bedroom with bookshelf and sea pictures">
+    <img src="casa4.jpg" alt="xxx">
+    <img src="casa5.jpg" alt="xxx">
+    <img src="casa6.jpg" alt="xxx">
+    <img src="casa7.jpg" alt="Dining area and kitchen with appliances">
+    <img src="casa8.jpg" alt="Second bedroom with bookshelf and angel image">
+    <img src="casa9.jpg" alt="xxx">
+  </div>
+</section>
+
+<!-- Lightbox con navigazione -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="nav prev" onclick="showPrev()">&#10094;</span>
+  <span class="nav next" onclick="showNext()">&#10095;</span>
+</div>
+
+<footer>
+  <p>&copy; 2025 Casa Vacanze Gianna</p>
+</footer>
+
+<script>
+  const images = Array.from(document.querySelectorAll('.gallery img'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  let currentIndex = 0;
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentIndex = index;
+      openLightbox();
+    });
+  });
+
+  function openLightbox() {
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = 'flex';
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    openLightbox();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    openLightbox();
+  }
+
+  // Supporto tastiera
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.style.display === 'flex') {
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') closeLightbox();
+    }
+  });
+</script>
+
+</body>
+</html>
