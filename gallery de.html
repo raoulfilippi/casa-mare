@@ -87,25 +87,28 @@
 </head>
 <body>
 <header>
-  <div style="max-width: 1200px; margin: 0 auto; position: relative;">
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; background-color: #4db6ac; color: white;">
+    
+    <!-- Leiste oben mit Sprache und Home-Button -->
+    <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <select onchange="window.location.href = this.value;" style="padding: 0.5rem; font-size: 1rem; background-color: #388e82; color: white; border: none; border-radius: 4px;">
+        <option value="gallery de.html">Deutsch</option>
+        <option value="gallery en.html">Englisch</option>
+        <option value="gallery it.html">Italienisch</option>
+      </select>
+      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
+        🏠 Startseite
+      </a>
+    </div>
+
+    <!-- Titel -->
     <div style="text-align: center;">
       <div style="font-weight: bold; font-size: 1.8rem;">Ferienhaus Gianna</div>
-      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
-    </div>
-    <div style="position: absolute; top: 0.5rem; left: 0;">
-      <select onchange="window.location.href = this.value;">
-        <option value="gallery it.html">Italienisch</option> 
-        <option value="gallery en.html">Englisch</option>
-        <option value="gallery de.html" selected>Deutsch</option>
-      </select>
-    </div>
-    <div style="position: absolute; top: 0.5rem; right: 0;">
-      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
-        🏠 Home
-      </a>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italien</div>
     </div>
   </div>
 </header>
+
 
 <section>
   <h2>Galerie</h2>
