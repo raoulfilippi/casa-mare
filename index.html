@@ -5,72 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benvenuti - Welcome</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 1rem;
       background: linear-gradient(to right, #a8edea, #fed6e3);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
     }
 
     h1 {
       color: #333;
       text-align: center;
       margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+
+    .preview-img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     .lang-buttons {
       display: flex;
-      gap: 1rem; /* Ridotto per una distanza più piccola tra i pulsanti */
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
       margin-top: 1.5rem;
     }
 
     a.button {
       background-color: #4db6ac;
       color: white;
-      padding: 0.8rem 1.5rem; /* Ridotto il padding per ridurre la dimensione */
+      padding: 0.8rem 1.2rem;
       text-decoration: none;
       border-radius: 8px;
-      font-size: 1rem; /* Ridotto il font size */
+      font-size: 1rem;
       transition: background-color 0.3s ease;
+      white-space: nowrap;
     }
 
     a.button:hover {
       background-color: #00897b;
     }
 
-    .preview-img {
-      max-width: 25%;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
     footer {
-      position: absolute;
-      bottom: 1rem;
+      margin-top: auto;
+      padding: 1rem 0;
       font-size: 0.9rem;
       color: #666;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      a.button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>Holiday Home Gianna</h1>
 
-<video class="preview-img" style="max-width: 25%;" autoplay loop muted>
-  <source src="Lido delle nazioni.mp4" type="video/mp4">
-  <source src="Lido delle nazioni.webm" type="video/webm">
-  <source src="Lido delle nazioni.ogg" type="video/ogg">
-  Your browser does not support the video tag.
-</video>
+  <video class="preview-img" autoplay loop muted playsinline>
+    <source src="Lido delle nazioni.mp4" type="video/mp4">
+    <source src="Lido delle nazioni.webm" type="video/webm">
+    <source src="Lido delle nazioni.ogg" type="video/ogg">
+    Your browser does not support the video tag.
+  </video>
 
   <div class="lang-buttons">
     <a href="it.html" class="button">Italiano 🇮🇹</a>
     <a href="en.html" class="button">English 🇬🇧</a>
-    <a href="de.html" class="button">Deutsch 🇩🇪</a> <!-- Pulsante per la lingua tedesca -->
+    <a href="de.html" class="button">Deutsch 🇩🇪</a>
   </div>
 
   <footer>&copy; 2025 Holiday Home Gianna</footer>
