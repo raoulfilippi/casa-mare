@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ferienhaus Gianna</title>
+  <title>Holiday Home Gianna</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,43 +12,47 @@
       background-color: #f5f5f5;
       color: #333;
     }
+
     header {
       background-color: #4db6ac;
       color: white;
-      padding: 1.5rem;
-      text-align: center;
+      padding: 1.5rem 1rem;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      background-color: white;
-    }
-    h2 {
-      color: #4db6ac;
-    }
-    .gallery img {
-      width: 100%;
-      max-width: 300px;
-      margin: 0.5rem;
-      border-radius: 8px;
-    }
-    .gallery {
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: space-between;
+      align-items: center;
     }
-    footer {
-      background-color: #4db6ac;
-      color: white;
+
+    .header-title {
+      flex: 1 1 100%;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-    select {
+
+    .header-title div:first-child {
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+
+    .header-title div:last-child {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+
+    .lang-select,
+    .home-button {
+      flex: 1 1 auto;
+    }
+
+    .lang-select select {
       padding: 0.5rem;
       font-size: 1rem;
       background-color: #388e82;
@@ -56,30 +60,115 @@
       border: none;
       border-radius: 4px;
     }
+
+    .home-button a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #388e82;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      background-color: white;
+    }
+
+    h2 {
+      color: #4db6ac;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #4db6ac;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .actions a {
+      background-color: #4db6ac;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      width: 200px;
+      text-align: center;
+    }
+
+    .actions a:nth-child(1) { background-color: #25D366; }
+    .actions a:nth-child(2) { background-color: #ff7043; }
+    .actions a:nth-child(3) { background-color: #2196f3; }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    a.blinking {
+      color: #4db6ac;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+      animation: blink 1s infinite;
+    }
+
+    @media (max-width: 600px) {
+      .lang-select, .home-button {
+        flex: 1 1 50%;
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+    }
   </style>
 </head>
 <body>
-<header>
-  <div style="max-width: 1200px; margin: 0 auto; position: relative;">
-    <div style="text-align: center;">
-      <div style="font-weight: bold; font-size: 1.8rem;">Holiday Home Gianna</div>
-      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italy</div>
-    </div>
-    
-    <!-- Home button on the right -->
-    <div style="position: absolute; top: 0.5rem; right: 0;">
-      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
-        🏠 Home
-      </a>
-    </div>
 
-    <!-- Language dropdown -->
-    <div style="position: absolute; top: 0.5rem; left: 0;">
+<header>
+  <div class="header-container">
+    <div class="lang-select">
       <select onchange="window.location.href = this.value;">
         <option value="index.html">English</option>
         <option value="de.html">German</option>
         <option value="it.html">Italian</option>
       </select>
+    </div>
+
+    <div class="header-title">
+      <div>Holiday Home Gianna</div>
+      <div>Lido delle Nazioni, Comacchio (FE), Italy</div>
+    </div>
+
+    <div class="home-button">
+      <a href="index.html">🏠 Home</a>
     </div>
   </div>
 </header>
@@ -99,47 +188,29 @@
     <li>Private parking</li>
   </ul>
 
-<h2>Gallery</h2>
-<p>
-  To view the full image gallery, visit our dedicated page:
-  <a href="gallery en.html" style="color: #4db6ac; text-decoration: none; font-weight: bold; font-size: 1.5rem; animation: blink 1s infinite;">
-    Go to Gallery
-  </a>
-</p>
+  <h2>Gallery</h2>
+  <p>
+    To view the full image gallery, visit our dedicated page:
+    <a href="gallery en.html" class="blinking">Go to Gallery</a>
+  </p>
 
-<style>
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-</style>
-
-
-<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-    <a href="https://wa.me/393388984269?text=Hello%2C%20I%20would%20like%20to%20receive%20more%20information%20about%20Holiday%20Home%20Gianna"
-       target="_blank"
-       style="background-color:#25D366; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+  <div class="actions">
+    <a href="https://wa.me/393388984269?text=Hello%2C%20I%20would%20like%20to%20receive%20more%20information%20about%20Holiday%20Home%20Gianna" target="_blank">
       💬 Contact Us
     </a>
-
-    <a href="mailto:casamarenazioni@gmail.com?subject=Booking%20Inquiry%20for%20Holiday%20Home%20Gianna"
-       style="background-color:#ff7043; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+    <a href="mailto:casamarenazioni@gmail.com?subject=Booking%20Inquiry%20for%20Holiday%20Home%20Gianna">
       🏖️ Book Now
     </a>
-
-    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686"
-       target="_blank"
-       style="background-color:#2196f3; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686" target="_blank">
       📍 Directions
     </a>
-</div>
+  </div>
 </section>
-
 
 <footer>
   <p>&copy; 2025 Ferienhaus Gianna</p>
   <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Back to Home</a></p>
 </footer>
+
 </body>
 </html>
