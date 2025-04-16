@@ -3,220 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ferienhaus Gianna</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: #4db6ac;
-      color: white;
-      padding: 1.5rem 1rem;
+  <title>Casa Vacanze Gianna</title>
+  
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  header {
+    background-color: #4db6ac;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .top-left select {
+    background-color: #388e82;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  .top-right a {
+    background-color: #388e82;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  section {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background-color: white;
+  }
+  h2 {
+    color: #4db6ac;
+  }
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem;
+    border-radius: 8px;
+  }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  footer {
+    background-color: #4db6ac;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
+    .header-container {
+      flex-direction: column;
       text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
     }
-
-    header .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .header-title {
-      flex: 1 1 100%;
-      text-align: center;
-    }
-
-    .header-title div:first-child {
-      font-weight: bold;
-      font-size: 1.8rem;
-    }
-
-    .header-title div:last-child {
-      font-size: 1rem;
-    }
-
-    .lang-select,
-    .home-button {
-      flex: 1 1 auto;
-    }
-
-    .home-button a,
-    .lang-select select {
-      background-color: #388e82;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-      background-color: white;
-    }
-
-    h2 {
-      color: #4db6ac;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .gallery img {
+    .top-left, .top-right {
       width: 100%;
-      max-width: 300px;
-      margin: 0.5rem;
-      border-radius: 8px;
     }
-
-    footer {
-      background-color: #4db6ac;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+    .top-right {
+      margin-top: 0.5rem;
     }
+  }
+</style>
 
-    footer a {
-      color: white;
-      text-decoration: underline;
-    }
-
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn-group a {
-      flex: 1 1 200px;
-      max-width: 250px;
-      background-color: #25D366;
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .btn-group a:nth-child(2) {
-      background-color: #ff7043;
-    }
-
-    .btn-group a:nth-child(3) {
-      background-color: #2196f3;
-    }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    .gallery-link {
-      color: #4db6ac;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.5rem;
-      animation: blink 1s infinite;
-    }
-
-    /* 📱 Responsive layout per dispositivi mobili */
-    @media (max-width: 600px) {
-      .header-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .home-button a,
-      .lang-select select {
-        width: 100%;
-        text-align: center;
-      }
-
-      .btn-group a {
-        flex: 1 1 100%;
-        max-width: none;
-      }
-    }
-  </style>
 </head>
 <body>
+
 <header>
   <div class="header-container">
-    <div class="lang-select">
+    <div class="top-left">
       <select onchange="window.location.href = this.value;">
-        <option value="index.html">Deutsch</option>
+        <option value="index.html">Italiano</option>
         <option value="en.html">English</option>
-        <option value="it.html">Italienisch</option>
+        <option value="de.html">Deutsch</option>
       </select>
     </div>
-
-    <div class="header-title">
-      <div>Ferienhaus Gianna</div>
-      <div>Lido delle Nazioni, Comacchio (FE), Italien</div>
+    <div class="title-center">
+      <div style="font-weight: bold; font-size: 1.8rem;">Casa Vacanze Gianna</div>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
     </div>
-
-    <div class="home-button">
-      <a href="index.html">🏠 Startseite</a>
+    <div class="top-right">
+      <a href="index.html">🏠 Homepage</a>
     </div>
   </div>
 </header>
 
+
 <section>
   <h2>Willkommen</h2>
-  <p>Eckvilla in einer ruhigen und grünen Gegend, mit Vorder- und Hintergarten. Perfekt für Familien und Paare. Nur 200 Meter vom Meer entfernt (3 Minuten zu Fuß), in der Nähe des Baia Thaiti Beach Clubs.</p>
-
+  <p>Eckhaus in ruhiger und grüner Lage mit Vorder- und Hintergarten. Perfekt für Familien und Paare. Nur 200 Meter vom Meer entfernt (3 Minuten zu Fuß), in der Nähe des Baia Thaiti Beach Clubs.</p>
   <h2>Kapazität</h2>
   <p>Bis zu 6 Gäste: zwei Doppelzimmer und ein Schlafsofa im Wohnzimmer.</p>
-
-  <h2>Ausstattungen</h2>
+  <h2>Ausstattung</h2>
   <ul>
-    <li>WLAN</li>
-    <li>Klimaanlage</li>
+    <li>Wi-Fi</li>
+    <li>Aria condizionata</li>
     <li>Vorder- und Hintergarten</li>
-    <li>Privater Parkplatz</li>
+    <li>Privatparkplatz</li>
   </ul>
-
   <h2>Galerie</h2>
-  <p>
-    Um die vollständige Bildergalerie zu sehen, besuchen Sie unsere dedizierte Seite:
-    <a href="gallery de.html" class="gallery-link">Zur Galerie</a>
+  <p>Um die vollständige Bildergalerie zu sehen, besuchen Sie unsere spezielle Seite:
+    <a href="gallery de.html" style="color: #4db6ac; text-decoration: none; font-weight: bold; font-size: 1.5rem;">Alla Galerie</a>
   </p>
-
-  <div class="btn-group">
-    <a href="https://wa.me/393388984269?text=Hallo%2C%20ich%20möchte%20mehr%20Informationen%20über%20Ferienhaus%20Gianna%20erhalten" target="_blank">💬 Kontaktieren Sie uns</a>
-    <a href="mailto:casamarenazioni@gmail.com?subject=Buchungsanfrage%20für%20Ferienhaus%20Gianna">🏖️ Jetzt buchen</a>
-    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686" target="_blank">📍 Wegbeschreibung</a>
-  </div>
 </section>
+
 
 <footer>
   <p>&copy; 2025 Ferienhaus Gianna</p>
-  <p><a href="index.html">🏠 Zurück zur Startseite</a></p>
+  <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Torna alla homepage</a></p>
 </footer>
+
 </body>
 </html>
