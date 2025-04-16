@@ -3,213 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Holiday Home Gianna</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-
-    header {
-      background-color: #4db6ac;
-      color: white;
-      padding: 1.5rem 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
+  <title>Casa Vacanze Gianna</title>
+  
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  header {
+    background-color: #4db6ac;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .top-left select {
+    background-color: #388e82;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+  .top-right a {
+    background-color: #388e82;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  section {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+    background-color: white;
+  }
+  h2 {
+    color: #4db6ac;
+  }
+  .gallery img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0.5rem;
+    border-radius: 8px;
+  }
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  footer {
+    background-color: #4db6ac;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 600px) {
     .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header-title {
-      flex: 1 1 100%;
+      flex-direction: column;
       text-align: center;
-      margin-bottom: 1rem;
     }
-
-    .header-title div:first-child {
-      font-weight: bold;
-      font-size: 1.8rem;
-    }
-
-    .header-title div:last-child {
-      font-size: 1rem;
-      font-weight: normal;
-    }
-
-    .lang-select,
-    .home-button {
-      flex: 1 1 auto;
-    }
-
-    .lang-select select {
-      padding: 0.5rem;
-      font-size: 1rem;
-      background-color: #388e82;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-
-    .home-button a {
-      color: white;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      background-color: #388e82;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem 1rem;
-      background-color: white;
-    }
-
-    h2 {
-      color: #4db6ac;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .gallery img {
+    .top-left, .top-right {
       width: 100%;
-      max-width: 300px;
-      margin: 0.5rem;
-      border-radius: 8px;
     }
-
-    footer {
-      background-color: #4db6ac;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+    .top-right {
+      margin-top: 0.5rem;
     }
+  }
+</style>
 
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .actions a {
-      background-color: #4db6ac;
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: bold;
-      width: 200px;
-      text-align: center;
-    }
-
-    .actions a:nth-child(1) { background-color: #25D366; }
-    .actions a:nth-child(2) { background-color: #ff7043; }
-    .actions a:nth-child(3) { background-color: #2196f3; }
-
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    a.blinking {
-      color: #4db6ac;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.5rem;
-      animation: blink 1s infinite;
-    }
-
-    @media (max-width: 600px) {
-      .lang-select, .home-button {
-        flex: 1 1 50%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-      }
-    }
-  </style>
 </head>
 <body>
 
 <header>
   <div class="header-container">
-    <div class="lang-select">
+    <div class="top-left">
       <select onchange="window.location.href = this.value;">
-        <option value="index.html">English</option>
-        <option value="de.html">German</option>
-        <option value="it.html">Italian</option>
+        <option value="index.html">Italiano</option>
+        <option value="en.html">English</option>
+        <option value="de.html">Deutsch</option>
       </select>
     </div>
-
-    <div class="header-title">
-      <div>Holiday Home Gianna</div>
-      <div>Lido delle Nazioni, Comacchio (FE), Italy</div>
+    <div class="title-center">
+      <div style="font-weight: bold; font-size: 1.8rem;">Casa Vacanze Gianna</div>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
     </div>
-
-    <div class="home-button">
-      <a href="index.html">🏠 Home</a>
+    <div class="top-right">
+      <a href="index.html">🏠 Homepage</a>
     </div>
   </div>
 </header>
 
+
 <section>
   <h2>Welcome</h2>
-  <p>Corner villa located in a quiet, green area with front and back gardens. Perfect for families and couples. Only 200 meters from the sea (3 minutes on foot), near the Baia Thaiti Beach Club.</p>
-
+  <p>Corner villa located in a quiet green area with front and back gardens. Perfect for families and couples. Just 200 meters from the sea (3-minute walk), near Baia Thaiti Beach Club.</p>
   <h2>Capacity</h2>
-  <p>Up to 6 guests: two double rooms and a sofa bed in the living room.</p>
-
+  <p>Up to 6 guests: two double bedrooms and a sofa bed in the living room.</p>
   <h2>Amenities</h2>
   <ul>
     <li>Wi-Fi</li>
-    <li>Air conditioning</li>
-    <li>Front and back gardens</li>
+    <li>Aria condizionata</li>
+    <li>Front and back garden</li>
     <li>Private parking</li>
   </ul>
-
   <h2>Gallery</h2>
-  <p>
-    To view the full image gallery, visit our dedicated page:
-    <a href="gallery en.html" class="blinking">Go to Gallery</a>
+  <p>To see the full image gallery, visit our dedicated page:
+    <a href="gallery en.html" style="color: #4db6ac; text-decoration: none; font-weight: bold; font-size: 1.5rem;">Alla Gallery</a>
   </p>
-
-  <div class="actions">
-    <a href="https://wa.me/393388984269?text=Hello%2C%20I%20would%20like%20to%20receive%20more%20information%20about%20Holiday%20Home%20Gianna" target="_blank">
-      💬 Contact Us
-    </a>
-    <a href="mailto:casamarenazioni@gmail.com?subject=Booking%20Inquiry%20for%20Holiday%20Home%20Gianna">
-      🏖️ Book Now
-    </a>
-    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686" target="_blank">
-      📍 Directions
-    </a>
-  </div>
 </section>
+
 
 <footer>
   <p>&copy; 2025 Ferienhaus Gianna</p>
-  <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Back to Home</a></p>
+  <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Torna alla homepage</a></p>
 </footer>
 
 </body>
