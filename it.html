@@ -12,35 +12,47 @@
       background-color: #f5f5f5;
       color: #333;
     }
+
     header {
       background-color: #4db6ac;
       color: white;
-      padding: 1.5rem;
+      padding: 1.5rem 1rem;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
     section {
       max-width: 900px;
       margin: auto;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background-color: white;
     }
+
     h2 {
       color: #4db6ac;
     }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .gallery img {
       width: 100%;
       max-width: 300px;
       margin: 0.5rem;
       border-radius: 8px;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+
     footer {
       background-color: #4db6ac;
       color: white;
@@ -48,6 +60,7 @@
       padding: 1rem;
       margin-top: 2rem;
     }
+
     select {
       padding: 0.5rem;
       font-size: 1rem;
@@ -56,30 +69,101 @@
       border: none;
       border-radius: 4px;
     }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .button-group a {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 200px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .whatsapp { background-color: #25D366; color: white; }
+    .email { background-color: #ff7043; color: white; }
+    .maps { background-color: #2196f3; color: white; }
+
+    /* Pulsanti top */
+    .top-left, .top-right {
+      position: absolute;
+      top: 0.5rem;
+    }
+
+    .top-left { left: 0; }
+    .top-right { right: 0; }
+
+    .top-right a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      background-color: #388e82;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .galleria-link {
+      color: #4db6ac;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.5rem;
+      animation: blink 1s infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .button-group a {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .top-left, .top-right {
+        position: static;
+        margin: 0.5rem 0;
+        text-align: center;
+      }
+
+      .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-<header>
-  <div style="max-width: 1200px; margin: 0 auto; position: relative;">
-    <div style="text-align: center;">
-      <div style="font-weight: bold; font-size: 1.8rem;">Casa Vacanze Gianna</div>
-      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
-    </div>
-    
-    <!-- Pulsante Home a destra -->
-    <div style="position: absolute; top: 0.5rem; right: 0;">
-      <a href="index.html" style="color: white; text-decoration: none; font-size: 1rem; font-weight: bold; background-color: #388e82; padding: 0.5rem 1rem; border-radius: 6px;">
-        🏠 Homepage
-      </a>
-    </div>
 
-    <!-- Menu a tendina per la lingua -->
-    <div style="position: absolute; top: 0.5rem; left: 0;">
+<header>
+  <div class="header-container">
+    <div class="top-left">
       <select onchange="window.location.href = this.value;">
         <option value="index.html">Italiano</option>
         <option value="en.html">Inglese</option>
         <option value="de.html">Tedesco</option>
       </select>
+    </div>
+    <div>
+      <div style="font-weight: bold; font-size: 1.8rem;">Casa Vacanze Gianna</div>
+      <div style="font-size: 1rem; font-weight: normal;">Lido delle Nazioni, Comacchio (FE), Italia</div>
+    </div>
+    <div class="top-right">
+      <a href="index.html">🏠 Homepage</a>
     </div>
   </div>
 </header>
@@ -99,47 +183,29 @@
     <li>Parcheggio privato</li>
   </ul>
 
-<h2>Galleria</h2>
-<p>
-  Per vedere la galleria completa delle immagini, visita la nostra pagina dedicata:
-  <a href="gallery it.html" style="color: #4db6ac; text-decoration: none; font-weight: bold; font-size: 1.5rem; animation: blink 1s infinite;">
-    Alla Galleria
-  </a>
-</p>
+  <h2>Galleria</h2>
+  <p>
+    Per vedere la galleria completa delle immagini, visita la nostra pagina dedicata:
+    <a href="gallery it.html" class="galleria-link">Alla Galleria</a>
+  </p>
 
-<style>
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-</style>
-
-
-<div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-    <a href="https://wa.me/393388984269?text=Ciao%2C%20vorrei%20ricevere%20maggiori%20informazioni%20su%20Casa%20Vacanze%20Gianna"
-       target="_blank"
-       style="background-color:#25D366; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+  <div class="button-group">
+    <a class="whatsapp" href="https://wa.me/393388984269?text=Ciao%2C%20vorrei%20ricevere%20maggiori%20informazioni%20su%20Casa%20Vacanze%20Gianna" target="_blank">
       💬 Contattaci
     </a>
-
-    <a href="mailto:casamarenazioni@gmail.com?subject=Richiesta%20di%20prenotazione%20per%20Casa%20Vacanze%20Gianna"
-       style="background-color:#ff7043; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+    <a class="email" href="mailto:casamarenazioni@gmail.com?subject=Richiesta%20di%20prenotazione%20per%20Casa%20Vacanze%20Gianna">
       🏖️ Prenota ora 
     </a>
-
-    <a href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686"
-       target="_blank"
-       style="background-color:#2196f3; color:white; padding:1rem 2rem; border-radius:8px; text-decoration:none; font-size:1.1rem; font-weight:bold; width: 200px; text-align: center;">
+    <a class="maps" href="https://www.google.com/maps?q=44.733726811572964,12.23992232510686" target="_blank">
       📍 Indicazioni stradali
     </a>
-</div>
+  </div>
 </section>
-
 
 <footer>
   <p>&copy; 2025 Ferienhaus Gianna</p>
   <p><a href="index.html" style="color:white; text-decoration: underline;">🏠 Torna alla homepage</a></p>
 </footer>
+
 </body>
 </html>
